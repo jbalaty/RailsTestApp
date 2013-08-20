@@ -1,0 +1,4 @@
+RailsTestApp
+============
+
+First rails application
