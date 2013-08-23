@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  externid: MyString
+  price: 123_123_123
+  url: MyString
+  externsource: sreality
+
+two:
+  title: MyString
+  description: MyText
+  externid: MyString
+  price:  1_111_111
+  url: MyString
+  externsource: sreality
+
