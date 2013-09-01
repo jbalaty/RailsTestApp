@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831174904) do
+ActiveRecord::Schema.define(version: 20130901151223) do
 
   create_table "ads", force: true do |t|
     t.string   "title"
@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(version: 20130831174904) do
     t.string   "building_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "lastCheckAt"
+    t.string   "lastCheckResponseStatus"
   end
 
   create_table "requests", force: true do |t|
     t.string   "title"
     t.string   "url"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

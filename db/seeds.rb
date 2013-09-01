@@ -18,8 +18,17 @@ nabízejí excelentní výhled do údolí Radotína a řeky Berounky. Všechny b
           externid:'4106',
           url:'http://www.sreality.cz/detail/prodej/byt/4+1/praha-praha-5-/4000535132?attractiveAdvertId=3459')
 
-Request.delete_all
-Request.create!(title:'Muj inzerat na barak',
-                url:'http://www.sreality.cz/detail/prodej/byt/4+1/praha-praha-5-/4000535132?attractiveAdvertId=3459'
 
+Request.delete_all
+Request.create!(title:'Muj inzerat na barak 1',
+                url:'http://www.sreality.cz/detail/prodej/byt/4+1/praha-praha-5-/4000535132?attractiveAdvertId=3459',
+                email:'testemail@test.com'
+)
+Request.create!(title:'Muj inzerat na barak 2',
+                url:'http://www.sreality.cz/detail/prodej/byt/2+kk/praha-zabehlice-pracska/4152259164',
+                email:'testemail@test.com'
+)
+Request.create!(title:'Muj inzerat na byt 1',
+                url:'http://www.sreality.cz/detail/prodej/byt/2+kk/praha-zlicin-vestonicka/1773867868',
+                email:'testemail@test.com'
 )
