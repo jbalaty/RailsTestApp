@@ -17,3 +17,9 @@ nabízejí excelentní výhled do údolí Radotína a řeky Berounky. Všechny b
           externsource:'sreality',
           externid:'4106',
           url:'http://www.sreality.cz/detail/prodej/byt/4+1/praha-praha-5-/4000535132?attractiveAdvertId=3459')
+
+Request.delete_all
+Request.create!(title:'Muj inzerat na barak',
+                url:'http://www.sreality.cz/detail/prodej/byt/4+1/praha-praha-5-/4000535132?attractiveAdvertId=3459'
+
+)

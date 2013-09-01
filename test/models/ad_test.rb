@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AdTest < ActiveSupport::TestCase
-  fixtures ads
+  fixtures :ads
 
   test "product attributes must not be empty" do
     ad = Ad.new

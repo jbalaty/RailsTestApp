@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820110741) do
+ActiveRecord::Schema.define(version: 20130831174904) do
 
   create_table "ads", force: true do |t|
     t.string   "title"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 20130820110741) do
     t.decimal  "price"
     t.string   "url"
     t.string   "externsource"
+    t.datetime "createdAt"
+    t.datetime "updatedAt"
+    t.text     "address"
+    t.string   "ownership"
+    t.string   "state"
+    t.string   "mapurl"
+    t.string   "building_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", force: true do |t|
+    t.string   "title"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
