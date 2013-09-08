@@ -2,74 +2,95 @@
 require 'mechanize'
 require 'uri'
 require 'pathname'
+
 require_relative 'config/environment.rb'
+require_relative 'lib/workers/sreality.rb'
 
-agent = Mechanize.new
-
-
-def extract_detail_page_data(page)
-  result = {}
-  nodes = page.search('#realityInfo h2')
-  result['Název'] = nodes.first.content
-  nodes = page.search('#realityInfo p.row')
-  result.merge! extract_rows nodes
-  result['Popis'] = page.search('.row.last .description').first.content
-  result
-end
-
-def extract_rows(nodes)
-  result = {}
-  value = nil
-  nodes.each do |row|
-    desc = row.children()[1].content.strip.chop
-    case
-      when desc == "Celková cena"
-        value = row.children()[3].content.match(/(?<price>[\d ]+)/)['price'].gsub(/ /, '').to_i
-      when desc == "Datum aktualizace"
-        value = Date.parse(row.children()[3].content)
-      else
-        value = row.children()[3].content
-    end
-    result[desc]=value
-  end
-  result
-end
-
-def extract_sreality_externid(url)
-  return Pathname.new(URI(url).path).basename.to_s
-end
-
-pages_per_second = 100;
+@agent = Mechanize.new
+requests_per_second = 100;
 dt = DateTime.now - 0.minutes
-puts "Getting Ads with last check before #{dt}"
-ads = Ad.where('lastCheckAt <= ? or lastCheckAt is null', dt)
-ads.each do |item|
+
+def puts_divider
+  puts '-----------------------------------------------------------------'
+end
+
+def update_ad(ad)
+  changed = false
+  page = @agent.get(ad.url)
+  sreality = Sreality.new
+  detail = sreality.extract_detail_page_data ad.url, page
+  #puts detail
+  ad.title = detail['Název']
+  ad.price = detail['Celková cena']
+  ad.description = detail['Popis']
+  ad.externid = detail['ExternId']
+  # if something changed, create new AdChange object
+  if ad.updatedAt != detail['Datum aktualizace']
+    changed = true
+  else
+  end
+  ad.updatedAt = detail['Datum aktualizace']
+  ad.externsource = 'sreality.cz'
+  ad.lastCheckAt = DateTime.now
+  ad.lastCheckResponseStatus = '200'
+  changed
+end
+
+puts_divider
+puts "Processing new requests"
+puts_divider
+requests = Request.where('processed = :p', p: false)
+requests.each do |r|
   begin
-    puts "Item url: #{item.url}"
-    page = agent.get(item.url)
-    detail = extract_detail_page_data page
-    #puts detail
-    ad = item
-    ad.title = detail['Název']
-    ad.price = detail['Celková cena']
-    ad.description = detail['Popis']
-    ad.externid = extract_sreality_externid(item.url) #detail['ID zakázky']
-    # if something changed, create new AdChange object
-    if ad.updatedAt != detail['Datum aktualizace']
-      puts "Ad with ID=#{ad.id} has changed (#{ad.updatedAt} != #{detail['Datum aktualizace']})"
-    else
-      puts "Ad with ID=#{ad.id} was note updated"
+    puts r.inspect
+    sreality = Sreality.new
+    type = sreality.get_url_type r.url
+    if type == :detail
+      externid = sreality.extract_detail_page_externid r.url
+      ad = Ad.find_by_externid externid
+      unless ad
+        puts 'Creating new ad'
+        ad = Ad.new()
+        ad.url = sreality.normalize_detail_page_url(r.url).to_s
+        update_ad ad
+        ad.save!
+      end
+      unless r.ads.include?(ad)
+        puts "Associating existing ad to this request"
+        r.ads << ad
+      end
+    elsif type == :search
+      raise "Not implemented"
     end
-    ad.updatedAt = detail['Datum aktualizace']
-    ad.externsource = 'sreality.cz'
-    ad.lastCheckAt = DateTime.now
-    ad.lastCheckResponseStatus = '200'
-    ad.url = item.url
-    ad.save!
+    r.processed = true
+    r.save!
   rescue Exception => e
     puts e
   end
-  sleep 1 / pages_per_second
+end
+
+puts_divider
+puts "Processing ads"
+puts_divider
+puts "Getting Ads with last check before #{dt}"
+ads = Ad.where('lastCheckAt <= ? or lastCheckAt is null', dt)
+ads.each do |ad|
+  begin
+    puts "Ad url: #{ad.url}"
+    is_changed = update_ad ad
+    ad.save!
+    if is_changed
+      puts "Ad with ID=#{ad.id} has changed (#{ad.updatedAt}"
+      ad.requests.each do |r|
+        puts "\tAcknowlidging user of request #{r.id} - #{r.email}"
+      end
+    else
+      puts "Ad with ID=#{ad.id} was not changed"
+    end
+  rescue Exception => e
+    puts e
+  end
+  sleep 1 / requests_per_second
 end
 
 
