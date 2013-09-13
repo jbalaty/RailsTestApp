@@ -15,8 +15,12 @@ Request.create!(title:'Muj inzerat na barak 2',
                 url:'http://www.sreality.cz/detail/prodej/byt/2+kk/praha-zabehlice-pracska/4152259164',
                 email:'testemail@test.com'
 )
-Request.create!(title:'Muj inzerat na byt 1',
+Request.create!(title:'Muj inzerat na byt 1 - zruseny inzerat',
                 url:'http://www.sreality.cz/detail/prodej/byt/2+kk/praha-zlicin-vestonicka/1773867868',
+                email:'testemail@test.com'
+)
+Request.create!(title:'Muj inzerat na vyhledavani',
+                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=2&sub%5B%5D=37&price_min=1000000&price_max=&region=&distance=0&rg%5B%5D=10&rg%5B%5D=5&dt%5B%5D=5003&dt%5B%5D=18&usable_area-min=&usable_area-max=&flats-min=&flats-max=&age=0&extension=0&sort=0&perPage=10&hideRegions=0&discount=-1',
                 email:'testemail@test.com'
 )
 

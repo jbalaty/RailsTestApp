@@ -1,4 +1,6 @@
 RailsTestApp::Application.routes.draw do
+  resources :search_infos
+
   resources :requests
 
   resources :ads

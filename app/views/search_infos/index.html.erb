@@ -1,0 +1,33 @@
+<h1>Listing search_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Last check</th>
+      <th>Ads count</th>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @search_infos.each do |search_info| %>
+      <tr>
+        <td><%= search_info.id %></td>
+        <td><%= search_info.lastCheckAt %></td>
+        <td><%= search_info.resultsCount %></td>
+        <td><a href="<%= search_info.url %>"><%= search_info.url %></a></td>
+        <td><%= link_to 'Show', search_info %></td>
+        <td><%= link_to 'Edit', edit_search_info_path(search_info) %></td>
+        <td><%= link_to 'Destroy', search_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Search info', new_search_info_path %>

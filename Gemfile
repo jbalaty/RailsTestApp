@@ -46,3 +46,4 @@ end
 
 # web scrapping library
 gem 'mechanize'
+#gem 'log4r'

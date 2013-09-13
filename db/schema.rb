@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908212923) do
+ActiveRecord::Schema.define(version: 20130913210405) do
 
   create_table "ads", force: true do |t|
     t.string   "title"
@@ -42,7 +42,22 @@ ActiveRecord::Schema.define(version: 20130908212923) do
     t.string   "title"
     t.string   "url"
     t.string   "email"
-    t.boolean  "processed",  default: false
+    t.boolean  "processed",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "failedAttempts", default: 0
+  end
+
+  create_table "requests_search_infos", force: true do |t|
+    t.integer "request_id"
+    t.integer "search_info_id"
+  end
+
+  create_table "search_infos", force: true do |t|
+    t.integer  "resultsCount",   default: 0
+    t.datetime "lastCheckAt"
+    t.string   "lastAdExternId"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
