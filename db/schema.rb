@@ -11,53 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913210405) do
-
-  create_table "ads", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "externid"
-    t.decimal  "price"
-    t.string   "url"
-    t.string   "externsource"
-    t.datetime "createdAt"
-    t.datetime "updatedAt"
-    t.text     "address"
-    t.string   "ownership"
-    t.string   "state"
-    t.string   "mapurl"
-    t.string   "building_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "lastCheckAt"
-    t.string   "lastCheckResponseStatus"
-  end
-
-  create_table "ads_requests", force: true do |t|
-    t.integer "request_id"
-    t.integer "ad_id"
-  end
+ActiveRecord::Schema.define(version: 20130831174904) do
 
   create_table "requests", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.string   "email"
-    t.boolean  "processed",      default: false
+    t.boolean  "processed",          default: false
+    t.integer  "numFailedAttempts",  default: 0
+    t.datetime "firstFailedAttempt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "failedAttempts", default: 0
   end
 
-  create_table "requests_search_infos", force: true do |t|
+  create_table "requests_watched_resources", force: true do |t|
+    t.integer "watched_resource_id"
     t.integer "request_id"
-    t.integer "search_info_id"
   end
 
-  create_table "search_infos", force: true do |t|
-    t.integer  "resultsCount",   default: 0
+  create_table "watched_resources", force: true do |t|
+    t.string   "type"
+    t.string   "urlNormalized"
+    t.string   "usage",            default: "user"
+    t.string   "externId"
+    t.string   "externsource"
     t.datetime "lastCheckAt"
-    t.string   "lastAdExternId"
-    t.string   "url"
+    t.integer  "numFailedChecks"
+    t.datetime "firstFailedCheck"
+    t.integer  "resultsCount"
+    t.string   "lastExternId"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

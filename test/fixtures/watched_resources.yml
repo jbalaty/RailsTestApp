@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  lastCheckAt: 2013-09-21 22:48:02
+  urlNormalized: MyString
+  usage: MyString
+
+two:
+  type: 
+  lastCheckAt: 2013-09-21 22:48:02
+  urlNormalized: MyString
+  usage: MyString

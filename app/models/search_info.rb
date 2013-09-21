@@ -1,4 +1,4 @@
 class SearchInfo < ActiveRecord::Base
-  has_and_belongs_to_many :requests
+  has_one :watched_resource, as: :polymorhicWatchedResource
 
 end

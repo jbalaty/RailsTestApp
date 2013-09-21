@@ -1,8 +1,8 @@
 # encoding:UTF-8
 
 class Sreality
-  def initialize
-
+  def initialize(http_tool)
+    @http_tool = http_tool
   end
 
   def extract_detail_page_data(url, page)

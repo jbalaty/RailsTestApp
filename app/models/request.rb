@@ -1,8 +1,13 @@
 class Request < ActiveRecord::Base
-  has_and_belongs_to_many :ads
-  has_and_belongs_to_many :search_infos
+  has_and_belongs_to_many :watched_resources
 
   validates :title, :url, presence: true
   validates :url, :format => URI::regexp(%w(http https))
-  validates :email, presence:true
+
+  def addFailedAttempt
+    self.numFailedAttempts += 1;
+    if !self.firstFailedAttempt
+      self.firstFailedAttempt = DateTime.now
+    end
+  end
 end
