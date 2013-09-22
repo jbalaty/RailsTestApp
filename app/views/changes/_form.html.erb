@@ -1,0 +1,29 @@
+<%= form_for(@change) do |f| %>
+  <% if @change.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@change.errors.count, "error") %> prohibited this change from being saved:</h2>
+
+      <ul>
+      <% @change.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :subtype %><br>
+    <%= f.text_field :subtype %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.text_field :data %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Externid:</strong>
+  <%= @ad_info.externid %>
+</p>
+
+<p>
+  <strong>Urlnormalized:</strong>
+  <%= @ad_info.urlNormalized %>
+</p>
+
+<%= link_to 'Edit', edit_ad_info_path(@ad_info) %> |
+<%= link_to 'Back', ad_infos_path %>

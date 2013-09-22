@@ -1,5 +1,7 @@
 RailsTestApp::Application.routes.draw do
-  resources :watched_resources
+  resources :changes
+
+  resources :ad_infos
 
   resources :search_infos
 

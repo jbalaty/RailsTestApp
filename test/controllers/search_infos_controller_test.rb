@@ -18,7 +18,7 @@ class SearchInfosControllerTest < ActionController::TestCase
 
   test "should create search_info" do
     assert_difference('SearchInfo.count') do
-      post :create, search_info: {  }
+      post :create, search_info: { externid: @search_info.externid, urlNormalized: @search_info.urlNormalized }
     end
 
     assert_redirected_to search_info_path(assigns(:search_info))
@@ -35,7 +35,7 @@ class SearchInfosControllerTest < ActionController::TestCase
   end
 
   test "should update search_info" do
-    patch :update, id: @search_info, search_info: {  }
+    patch :update, id: @search_info, search_info: { externid: @search_info.externid, urlNormalized: @search_info.urlNormalized }
     assert_redirected_to search_info_path(assigns(:search_info))
   end
 

@@ -1,0 +1,31 @@
+<h1>Listing changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Subtype</th>
+      <th>Data</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @changes.each do |change| %>
+      <tr>
+        <td><%= change.type %></td>
+        <td><%= change.subtype %></td>
+        <td><%= change.data %></td>
+        <td><%= link_to 'Show', change %></td>
+        <td><%= link_to 'Edit', edit_change_path(change) %></td>
+        <td><%= link_to 'Destroy', change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Change', new_change_path %>

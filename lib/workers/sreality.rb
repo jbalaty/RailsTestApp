@@ -38,13 +38,63 @@ class Sreality
     URI url.sub(/sort=\d/, 'sort=0')
   end
 
-  def extract_search_page_info(url, page)
+  def extract_search_page_info(url)
     result = {}
+    page = @http_tool.get set_search_url_query_params(url, 'perPage' => 100)
     nodes = page.search('#results #showOnMap p span')
-    result['foundCount'] = nodes[0].content.match(/(?<count>[\d ]+)/)['count'].to_i
-    nodes = page.search('#changingResults .result h3.fn a')
-    result['lastAdId'] = extract_detail_page_externid nodes[0]['href']
+    result['foundCount'] = nodes.first.content.match(/(?<count>[\d ]+)/)['count'].to_i
+    ads = []
+    # repeat until we have page with some results
+    while page
+      nodes = page.search('#changingResults .result.vcard')
+      nodes.each do |vcard|
+        ads << extract_search_page_item(vcard)
+      end
+      # try to find next page link
+      nodes = page.search('#paging a.next')
+      if nodes.any?
+        page = @http_tool.get nodes.first['href']
+      else
+        page = nil
+      end
+    end
+    result['ads'] = ads
     result
+  end
+
+  def extract_search_page_item(vcard_node)
+    nodes = nil
+    begin
+      result = {}
+      nodes = vcard_node.search('.fn a')
+      result['title'] = nodes.first.content
+      result['urlNormalized'] = normalize_detail_page_url(nodes.first['href']).to_s
+      result['externId'] = extract_detail_page_externid(result['urlNormalized'])
+      result['externSource'] = 'sreality'
+      nodes = vcard_node.search('.price')
+      nodes = vcard_node.search('.price-discount') if nodes.empty?
+      if nodes.first.content == 'Info o ceně u RK' then
+        result['price'] = 0;
+        result['priceNotice'] = nodes.first.content if nodes.any?
+      else
+        result['price'] = nodes.first.content.gsub(/ /, '').to_i
+        nodes = vcard_node.search('.price-discount-desc')
+        result['priceNotice'] = nodes.first.content if nodes.any?
+      end
+      nodes = vcard_node.search('.silver')
+      result['priceType'] = nodes.first.content if nodes.any?
+      nodes = vcard_node.search('.address.adr').children().slice(2..10)
+      result['shortAddress'] = nodes.to_a.map {|n| n.content}.join
+      nodes = vcard_node.search('.picture.url img')
+      result['imageUrl'] = nodes.first['data-src']
+      result
+    rescue
+      puts $!
+      puts $!.backtrace.inspect
+      puts 'Error parsing item vcard info: ' + vcard_node.inspect
+      #puts "Additional node info: #{nodes.first.content}" if nodes.any?
+      raise $!
+    end
   end
 
   protected
@@ -65,5 +115,16 @@ class Sreality
     result
   end
 
+  def set_search_url_query_params(url, hash)
+    uri = URI(url)
+    params = Rack::Utils.parse_query uri.query
+    hash.each do |key, value|
+      if params.has_key? key
+        params[key] = value
+      end
+    end
+    uri.query = URI.encode_www_form params
+    uri.to_s
+  end
 
 end

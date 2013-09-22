@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WatchedResourceTest < ActiveSupport::TestCase
+class AdInfoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

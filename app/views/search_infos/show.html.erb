@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Externid:</strong>
+  <%= @search_info.externid %>
+</p>
+
+<p>
+  <strong>Urlnormalized:</strong>
+  <%= @search_info.urlNormalized %>
+</p>
+
 <%= link_to 'Edit', edit_search_info_path(@search_info) %> |
 <%= link_to 'Back', search_infos_path %>

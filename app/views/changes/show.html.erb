@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @change.type %>
+</p>
+
+<p>
+  <strong>Subtype:</strong>
+  <%= @change.subtype %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @change.data %>
+</p>
+
+<%= link_to 'Edit', edit_change_path(@change) %> |
+<%= link_to 'Back', changes_path %>

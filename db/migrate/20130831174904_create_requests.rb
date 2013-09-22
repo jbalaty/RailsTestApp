@@ -10,8 +10,8 @@ class CreateRequests < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :requests_watched_resources do |t|
-      t.belongs_to :watched_resource
+    create_table :requests_search_infos do |t|
+      t.belongs_to :search_info
       t.belongs_to :request
     end
   end

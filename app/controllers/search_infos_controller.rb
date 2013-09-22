@@ -69,6 +69,6 @@ class SearchInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def search_info_params
-      params[:search_info]
+      params.require(:search_info).permit(:externid, :urlNormalized)
     end
 end

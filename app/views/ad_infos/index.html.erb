@@ -1,0 +1,29 @@
+<h1>Listing ad_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Externid</th>
+      <th>Urlnormalized</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ad_infos.each do |ad_info| %>
+      <tr>
+        <td><%= ad_info.externid %></td>
+        <td><%= ad_info.urlNormalized %></td>
+        <td><%= link_to 'Show', ad_info %></td>
+        <td><%= link_to 'Edit', edit_ad_info_path(ad_info) %></td>
+        <td><%= link_to 'Destroy', ad_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ad info', new_ad_info_path %>

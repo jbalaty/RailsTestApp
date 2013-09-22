@@ -11,7 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831174904) do
+ActiveRecord::Schema.define(version: 20130922190910) do
+
+  create_table "ad_infos", force: true do |t|
+    t.string   "urlNormalized"
+    t.string   "externId"
+    t.string   "externSource"
+    t.datetime "lastCheckAt"
+    t.integer  "numFailedChecks"
+    t.datetime "firstFailedCheck"
+    t.string   "infoState",        default: "basic"
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "price"
+    t.string   "priceNotice"
+    t.string   "priceType"
+    t.string   "shortAddress"
+    t.string   "mapurl"
+    t.string   "ownership"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "changes", force: true do |t|
+    t.integer  "search_info_id"
+    t.integer  "ad_info_id"
+    t.string   "changeType"
+    t.string   "changeSubtype"
+    t.string   "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "requests", force: true do |t|
     t.string   "title"
@@ -23,17 +53,21 @@ ActiveRecord::Schema.define(version: 20130831174904) do
     t.datetime "updated_at"
   end
 
-  create_table "requests_watched_resources", force: true do |t|
-    t.integer "watched_resource_id"
+  create_table "requests_search_infos", force: true do |t|
+    t.integer "search_info_id"
     t.integer "request_id"
   end
 
-  create_table "watched_resources", force: true do |t|
-    t.string   "type"
+  create_table "search_info_ads_relations", force: true do |t|
+    t.integer "search_info_id"
+    t.integer "ad_info_id"
+  end
+
+  create_table "search_infos", force: true do |t|
     t.string   "urlNormalized"
     t.string   "usage",            default: "user"
     t.string   "externId"
-    t.string   "externsource"
+    t.string   "externSource"
     t.datetime "lastCheckAt"
     t.integer  "numFailedChecks"
     t.datetime "firstFailedCheck"

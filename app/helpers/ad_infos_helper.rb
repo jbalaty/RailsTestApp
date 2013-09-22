@@ -1,0 +1,2 @@
+module AdInfosHelper
+end

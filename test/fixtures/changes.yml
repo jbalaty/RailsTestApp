@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  externid: MyString
-  urlNormalized: MyString
+  type: 
+  subtype: MyString
+  data: MyString
 
 two:
-  externid: MyString
-  urlNormalized: MyString
+  type: 
+  subtype: MyString
+  data: MyString
