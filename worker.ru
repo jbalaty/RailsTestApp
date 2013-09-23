@@ -46,23 +46,30 @@ def update_search_info(si, sreality)
   old_ad_infos_arr = si.ad_infos.clone
   # update all ads watched resources
   ads.each do |ad_hash|
-    tmp = ad_hash.select {|k| k != 'imageUrl'}
+    tmp = ad_hash.select { |k| k != 'imageUrl' }
     tmp['lastCheckAt'] = DateTime.now
     ai = AdInfo.find_by_externId ad_hash['externId']
     unless ai
+      puts "Creating new AdInfo"
       ai = AdInfo.new tmp
     else
       ai.update tmp
     end
     ai.save!
     # update links between search info resource and all ads in the search
-    if !si.ad_infos.include? ai
+    #if !si.ad_infos.include? ai
+    if SearchInfoAdsRelation.where('search_info_id=? and ad_info_id=?',si.id,ai.id).empty?
       puts "Creating new link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id}"
+      siar = SearchInfoAdsRelation.create!(search_info_id: si.id, ad_info_id: ai.id)
+      #si.search_info_ads_relations << siar
       # create
-      change = Change.new(changeType: 'search_info', changeSubtype:'new_ad' )
-      change.search_info_id = si.id
-      change.ad_info_id = ai.id
-      change.save!
+      if (!si.new_record?)
+        # track this change
+        change = Change.new(changeType: 'search_info', changeSubtype: 'new_ad')
+        change.search_info_id = si.id
+        change.ad_info_id = ai.id
+        change.save!
+      end
       si.ad_infos << ai
       if old_ad_infos_arr.include? ai
         old_ad_infos_arr.delete ai
@@ -94,12 +101,12 @@ requests.each do |r|
     if type == :search
       urln = sreality.normalize_search_page_url(r.url).to_s
       #si = WatchedResource.where('externid=:eid', eid: urln).first
-      si = SearchInfo.find_by_externId urln
+      si = SearchInfo.find_by_urlNormalized urln
       unless si
-        puts 'Creating new WatchedResource'
-        si = SearchInfo.create
+        puts 'Creating new SearchInfo'
+        si = SearchInfo.create!
         si.urlNormalized = urln
-        update_search_info si,sreality
+        update_search_info si, sreality
         si.save!
       end
       # check if we have watched resource is associated with this request
@@ -148,7 +155,7 @@ puts "Getting SearchInfo with last check before #{dt}"
 sis = SearchInfo.where('lastCheckAt <= ? or lastCheckAt is null', dt)
 sis.each do |si|
   begin
-    puts "Search info url: #{si.url}"
+    puts "Search info url: #{si.urlNormalized}"
     sreality = Sreality.new @http_tool
     is_changed = update_search_info si, sreality
     si.save!
@@ -165,6 +172,22 @@ sis.each do |si|
   end
   sleep 1 / requests_per_second
 end
+
+puts_divider
+puts "Processing changes"
+puts_divider
+puts "Getting SearchInfo records, that has changed"
+si_ids = Change.select('search_info_id').group('search_info_id')
+si_ids.each do |si_id|
+  puts "Processing"
+  si = SearchInfo.find(si_id)
+  requests = si.requests
+end
+
+puts_divider
+puts "Deleting old changes"
+changes = Change.where('created_at > ?', DateTime.now - 10.days)
+changes.each { |change| change.remove }
 
 #puts_divider
 #puts "Processing ads"

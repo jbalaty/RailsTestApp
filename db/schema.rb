@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922190910) do
+ActiveRecord::Schema.define(version: 20130923174359) do
 
   create_table "ad_infos", force: true do |t|
     t.string   "urlNormalized"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20130922190910) do
     t.string   "changeType"
     t.string   "changeSubtype"
     t.string   "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "search_info_id"
+    t.integer  "ad_info_id"
+    t.integer  "request_id"
+    t.string   "notificationType"
+    t.string   "notificationSubtype"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
