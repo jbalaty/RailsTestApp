@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fe2e3d0-bdaa-485a-9351-7522c37a4101" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="$PROJECT_DIR$/config/environment.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worker.ru" afterPath="$PROJECT_DIR$/worker.ru" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RailsTestApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379955861934" ignored="false" />
+    <file path="/Dummy.txt" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379972633633" ignored="false" />
     <file path="/20130820110741_create_ads.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379799398771" ignored="false" />
     <file path="/seeds.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379806352984" ignored="false" />
     <file path="/application.html.erb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1376997794461" ignored="false" />
@@ -20,13 +19,13 @@
     <file path="/ads_controller_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377005078444" ignored="false" />
     <file path="/ads_controller.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377008710519" ignored="false" />
     <file path="/ad_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377010137812" ignored="false" />
-    <file path="/fragment.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379970599178" ignored="false" />
+    <file path="/fragment.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379977380730" ignored="false" />
     <file path="/schema.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377969805579" ignored="false" />
     <file path="/request.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379963804086" ignored="false" />
     <file path="/requests.yml" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377985893905" ignored="false" />
     <file path="/requests_controller_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377986140744" ignored="false" />
     <file path="/request_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377987656497" ignored="false" />
-    <file path="/worker.ru" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379970667281" ignored="false" />
+    <file path="/worker.ru" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379977580993" ignored="false" />
     <file path="/sreality.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379866052529" ignored="false" />
     <file path="/20130831174904_create_requests.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379863070335" ignored="false" />
     <file path="/20130908212923_create_requests_ads.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379797536289" ignored="false" />
@@ -100,10 +99,19 @@
           <file leaf-file-name="worker.ru" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/worker.ru">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="79" column="46" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.6570397">
+                <state line="180" column="17" selection-start="5359" selection-end="5359" vertical-scroll-proportion="0.38628158">
                   <folding>
                     <element signature="e#361#976#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="26" column="2" selection-start="1244" selection-end="1790" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -169,7 +177,7 @@
           <file leaf-file-name="SearchInfoChangeSummary.text.erb" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.text.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -216,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/ad.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130820110741_create_watched_resources.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130922151004_create_search_infos.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130831174904_create_requests.rb" />
@@ -231,6 +238,7 @@
         <option value="$PROJECT_DIR$/config/environment.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130923174359_create_notifications.rb" />
         <option value="$PROJECT_DIR$/app/models/request.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/worker.ru" />
       </list>
     </option>
@@ -523,14 +531,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="appearance" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker.ru" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker.ru" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -850,14 +858,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1922" height="1085" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1905016" sideWeight="0.65866387" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34133613" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19263607" sideWeight="0.65866387" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34133613" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -948,34 +956,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/worker.ru</url>
-          <line>179</line>
+          <line>177</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/worker.ru</url>
-          <line>159</line>
-          <option name="timeStamp" value="145" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/worker.ru</url>
-          <line>62</line>
-          <option name="timeStamp" value="146" />
+          <line>78</line>
+          <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="147" />
+      <option name="time" value="151" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/workers/sreality.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="23" selection-start="2729" selection-end="2751" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/ad.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="16" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
@@ -991,13 +987,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.text.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/change_notifier.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
@@ -1074,9 +1063,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/change_notifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="2" selection-start="1244" selection-end="1790" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/worker.ru">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="46" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.6570397">
+        <state line="180" column="17" selection-start="5359" selection-end="5359" vertical-scroll-proportion="0.38628158">
           <folding>
             <element signature="e#361#976#0" expanded="false" />
           </folding>

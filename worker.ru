@@ -43,7 +43,7 @@ def update_search_info(si, sreality)
   if si.resultsCount != ads.length or si.lastExternId != ads.first['externid']
     changed = true
   end
-  old_ad_infos_arr = si.ad_infos.clone
+  #old_ad_infos_arr = si.ad_infos.clone.to_a
   # update all ads watched resources
   ads.each do |ad_hash|
     tmp = ad_hash.select { |k| k != 'imageUrl' }
@@ -51,16 +51,14 @@ def update_search_info(si, sreality)
     ai = AdInfo.find_by_externId ad_hash['externId']
     unless ai
       puts "Creating new AdInfo"
-      ai = AdInfo.new tmp
+      ai = AdInfo.create! tmp
     else
-      ai.update tmp
+      ai.update! tmp
     end
-    ai.save!
     # update links between search info resource and all ads in the search
-    #if !si.ad_infos.include? ai
-    if SearchInfoAdsRelation.where('search_info_id=? and ad_info_id=?',si.id,ai.id).empty?
+    if !si.ad_infos.include? ai
       puts "Creating new link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id}"
-      siar = SearchInfoAdsRelation.create!(search_info_id: si.id, ad_info_id: ai.id)
+      #siar = SearchInfoAdsRelation.create!(search_info_id: si.id, ad_info_id: ai.id)
       #si.search_info_ads_relations << siar
       # create
       if (!si.new_record?)
@@ -71,18 +69,18 @@ def update_search_info(si, sreality)
         change.save!
       end
       si.ad_infos << ai
-      if old_ad_infos_arr.include? ai
-        old_ad_infos_arr.delete ai
-      end
+      #if old_ad_infos_arr.find_index ai
+      #  old_ad_infos_arr.delete ai
+      #end
     end
   end
   # remove all AdIds, that left in stored old collection
-  puts "#{old_ad_infos_arr.length} links between SearchInfos and Ads left"
-  old_ad_infos_arr.each do |ai|
-    puts "Removing link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id}"
-    # todo: create change record
-    si.ad_infos.delete ai.id
-  end
+  #puts "#{old_ad_infos_arr.length} links between SearchInfos and Ads left"
+  #old_ad_infos_arr.each do |ai|
+  #  puts "Removing link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id}"
+  #  # todo: create change record
+  #  si.ad_infos.delete ai.id
+  #end
   si.resultsCount = ads.length
   si.lastExternId = ads.first['externid']
   si.lastCheckAt = DateTime.now
@@ -177,17 +175,18 @@ puts_divider
 puts "Processing changes"
 puts_divider
 puts "Getting SearchInfo records, that has changed"
-si_ids = Change.select('search_info_id').group('search_info_id')
-si_ids.each do |si_id|
-  puts "Processing"
-  si = SearchInfo.find(si_id)
+si_ids = Change.select('search_info_id').group('search_info_id').to_a
+si_ids.each do |item|
+  puts "Processing SearchInfo #{item.id}"
+  #si = SearchInfo.find(item)
+  si = item.search_info
   requests = si.requests
 end
 
 puts_divider
 puts "Deleting old changes"
 changes = Change.where('created_at > ?', DateTime.now - 10.days)
-changes.each { |change| change.remove }
+changes.each { |change| change.delete }
 
 #puts_divider
 #puts "Processing ads"

@@ -17,14 +17,14 @@ Request.create!(title:'Muj inzerat na byt 1 - zruseny inzerat',
                 url:'http://www.sreality.cz/detail/prodej/byt/2+kk/praha-zlicin-vestonicka/1773867868',
 )
 Request.create!(title:'Muj inzerat na vyhledavani',
-                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=2&sub%5B%5D=37&price_min=1000000&price_max=&region=&distance=0&rg%5B%5D=10&rg%5B%5D=5&dt%5B%5D=5003&dt%5B%5D=18&usable_area-min=&usable_area-max=&flats-min=&flats-max=&age=0&extension=0&sort=0&perPage=10&hideRegions=0&discount=-1',
+                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=2&sub%5B%5D=37&price_min=1000000&price_max=1100000&region=&distance=0&rg%5B%5D=5&rg%5B%5D=11&dt%5B%5D=48&usable_area-min=&usable_area-max=&flats-min=&flats-max=&age=0&extension=0&sort=0&perPage=30&hideRegions=0&discount=-1',
 )
-Request.create!(title:'Muj inzerat na domy v Ceske Lipe',
-                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=2&sub%5B%5D=37&sub%5B%5D=41&price_min=&price_max=&region=&distance=0&rg%5B%5D=5&dt%5B%5D=18&usable_area-min=&usable_area-max=&flats-min=&flats-max=&age=0&extension=0&sort=0&perPage=10&hideRegions=0&discount=-1',
-)
-Request.create!(title:'Fail inzerat',
-                url:'http://www.sreality.cz/projekt?perPage=10&sort=1&projectName=&region=&distance=0&rg%5B%5D=2&rg%5B%5D=11&dt%5B%5D=8asdfa',
-)
+#Request.create!(title:'Muj inzerat na domy v Ceske Lipe',
+#                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=2&sub%5B%5D=37&sub%5B%5D=41&price_min=&price_max=&region=&distance=0&rg%5B%5D=5&dt%5B%5D=18&usable_area-min=&usable_area-max=&flats-min=&flats-max=&age=0&extension=0&sort=0&perPage=10&hideRegions=0&discount=-1',
+#)
+#Request.create!(title:'Fail inzerat',
+#                url:'http://www.sreality.cz/projekt?perPage=10&sort=1&projectName=&region=&distance=0&rg%5B%5D=2&rg%5B%5D=11&dt%5B%5D=8asdfa',
+#)
 
 
 #Ad.delete_all
