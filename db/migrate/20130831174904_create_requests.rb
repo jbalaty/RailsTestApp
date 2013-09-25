@@ -6,6 +6,7 @@ class CreateRequests < ActiveRecord::Migration
       t.boolean :processed, default: false
       t.integer :numFailedAttempts, default:0
       t.datetime :firstFailedAttempt
+      t.string :email
 
       t.timestamps
     end

@@ -24,11 +24,13 @@ ActiveRecord::Schema.define(version: 20130923174359) do
     t.string   "title"
     t.text     "description"
     t.decimal  "price"
+    t.string   "imageUrl"
     t.string   "priceNotice"
     t.string   "priceType"
     t.string   "shortAddress"
     t.string   "mapurl"
     t.string   "ownership"
+    t.string   "shortInfoHtml"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 20130923174359) do
     t.boolean  "processed",          default: false
     t.integer  "numFailedAttempts",  default: 0
     t.datetime "firstFailedAttempt"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

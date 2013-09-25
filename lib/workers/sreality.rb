@@ -66,6 +66,7 @@ class Sreality
     nodes = nil
     begin
       result = {}
+      result['shortInfoHtml'] = vcard_node.to_s
       nodes = vcard_node.search('.fn a')
       result['title'] = nodes.first.content
       result['urlNormalized'] = normalize_detail_page_url(nodes.first['href']).to_s

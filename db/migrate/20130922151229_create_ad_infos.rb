@@ -12,11 +12,13 @@ class CreateAdInfos < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.decimal :price
+      t.string :imageUrl
       t.string :priceNotice
       t.string :priceType
       t.string :shortAddress
       t.string :mapurl
       t.string :ownership
+      t.string :shortInfoHtml, length:1000
 
       t.timestamps
     end

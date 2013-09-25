@@ -1,0 +1,9 @@
+<h2>Nové inzeráty na SReality.cz</h2>
+
+<% @notifications.each do |notification| %>
+    <div>
+      <%= sanitize(notification.ad_info.shortInfoHtml.gsub(/href="\//,'href="http://www.sreality.cz/')
+          .gsub(/data-src/,'src').gsub(/Přidat do oblíbených/,'')) %>
+    </div>
+<% end %>
+

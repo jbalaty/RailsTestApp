@@ -1,14 +1,18 @@
+# encoding:UTF-8
 class ChangeNotifier < ActionMailer::Base
-  default from: "from@example.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.change_notifier.SearchInfoChangeSummary.subject
   #
-  def SearchInfoChangeSummary
-    @greeting = "Hi"
+  def SearchInfoChangeSummary(request, notifications)
 
-    mail to: "to@example.org"
+    @notifications = notifications.sort_by! do |n|
+      [n.search_info.id, n.created_at]
+    end
+
+    mail to: request.email, subject: 'Nové inzeráty na SReality.cz'
   end
+
 end

@@ -6,7 +6,8 @@ require_relative 'config/environment.rb'
 require_relative 'lib/workers/http_tool.rb'
 require_relative 'lib/workers/sreality.rb'
 
-requests_per_second = 100;
+dt_start = Time.now
+requests_per_second = 100
 dt = DateTime.now - 0.minutes
 @http_tool = HttpTool.new
 
@@ -46,7 +47,8 @@ def update_search_info(si, sreality)
   #old_ad_infos_arr = si.ad_infos.clone.to_a
   # update all ads watched resources
   ads.each do |ad_hash|
-    tmp = ad_hash.select { |k| k != 'imageUrl' }
+    #tmp = ad_hash.select { |k| !['imageUrl'].include?(k)  }
+    tmp = ad_hash
     tmp['lastCheckAt'] = DateTime.now
     ai = AdInfo.find_by_externId ad_hash['externId']
     unless ai
@@ -58,11 +60,10 @@ def update_search_info(si, sreality)
     # update links between search info resource and all ads in the search
     if !si.ad_infos.include? ai
       puts "Creating new link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id}"
-      #siar = SearchInfoAdsRelation.create!(search_info_id: si.id, ad_info_id: ai.id)
-      #si.search_info_ads_relations << siar
       # create
       if (!si.new_record?)
         # track this change
+        puts "Creating new change - new ad (siid=#{si.id} and aiid=#{ai.id})"
         change = Change.new(changeType: 'search_info', changeSubtype: 'new_ad')
         change.search_info_id = si.id
         change.ad_info_id = ai.id
@@ -81,6 +82,12 @@ def update_search_info(si, sreality)
   #  # todo: create change record
   #  si.ad_infos.delete ai.id
   #end
+
+  #only for debug
+  si.ad_infos.delete si.ad_infos.first
+  si.ad_infos.delete si.ad_infos.second
+  si.ad_infos.delete si.ad_infos.third
+
   si.resultsCount = ads.length
   si.lastExternId = ads.first['externid']
   si.lastCheckAt = DateTime.now
@@ -102,7 +109,7 @@ requests.each do |r|
       si = SearchInfo.find_by_urlNormalized urln
       unless si
         puts 'Creating new SearchInfo'
-        si = SearchInfo.create!
+        si = SearchInfo.new
         si.urlNormalized = urln
         update_search_info si, sreality
         si.save!
@@ -175,18 +182,34 @@ puts_divider
 puts "Processing changes"
 puts_divider
 puts "Getting SearchInfo records, that has changed"
-si_ids = Change.select('search_info_id').group('search_info_id').to_a
-si_ids.each do |item|
-  puts "Processing SearchInfo #{item.id}"
-  #si = SearchInfo.find(item)
-  si = item.search_info
-  requests = si.requests
+requestNotifications = {}
+changes = Change.all.order('created_at DESC')
+changes.each do |change|
+  begin
+    puts "Processing  change #{change.id}"
+    si = change.search_info
+    si.requests.each do |r|
+      puts "New notification for request #{r.id}"
+      puts "Change #{change.changeType}@#{change.changeSubtype}"
+      notifications = requestNotifications[r] || []
+      notifications << change
+      requestNotifications[r] = notifications
+    end
+    change.delete
+  rescue
+    puts $!, $@
+  end
 end
-
 puts_divider
-puts "Deleting old changes"
-changes = Change.where('created_at > ?', DateTime.now - 10.days)
-changes.each { |change| change.delete }
+puts "Sending notification emails #{requestNotifications.length}"
+requestNotifications.each do |k, v|
+  begin
+    puts "Sending emaitl for request #{k.id}"
+    ChangeNotifier.SearchInfoChangeSummary(k, v).deliver
+  rescue
+    puts $!, $@
+  end
+end
 
 #puts_divider
 #puts "Processing ads"
@@ -212,4 +235,8 @@ changes.each { |change| change.delete }
 #  sleep 1 / requests_per_second
 #end
 
-
+puts_divider
+dt_end = Time.now
+timeDiff = dt_end - dt_start
+puts "Time of run: #{timeDiff}"
+puts_divider
