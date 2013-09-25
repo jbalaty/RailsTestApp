@@ -1,8 +1,8 @@
 class CreateAdInfos < ActiveRecord::Migration
   def change
     create_table :ad_infos do |t|
-      t.string :urlNormalized # normalized extern url
-      t.string :externId, length: 1024 # identifier of resource in external system
+      t.text :urlNormalized, length: 1024  # normalized extern url
+      t.text :externId, length: 1024 # identifier of resource in external system
       t.string :externSource # external system name string = eg. sreality
       t.datetime :lastCheckAt
       t.integer :numFailedChecks
@@ -12,13 +12,13 @@ class CreateAdInfos < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.decimal :price
-      t.string :imageUrl
+      t.text :imageUrl
       t.string :priceNotice
       t.string :priceType
       t.string :shortAddress
-      t.string :mapurl
+      t.text :mapurl
       t.string :ownership
-      t.string :shortInfoHtml, length:1000
+      t.text :shortInfoHtml, length:1024
 
       t.timestamps
     end

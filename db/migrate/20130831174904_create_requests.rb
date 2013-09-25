@@ -2,7 +2,7 @@ class CreateRequests < ActiveRecord::Migration
   def change
     create_table :requests do |t|
       t.string :title # custom name for this request
-      t.string :url # url from external system
+      t.text :url, length: 1024 # url from external system
       t.boolean :processed, default: false
       t.integer :numFailedAttempts, default:0
       t.datetime :firstFailedAttempt

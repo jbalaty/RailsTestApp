@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20130923174359) do
 
   create_table "ad_infos", force: true do |t|
-    t.string   "urlNormalized"
-    t.string   "externId"
+    t.text     "urlNormalized"
+    t.text     "externId"
     t.string   "externSource"
     t.datetime "lastCheckAt"
     t.integer  "numFailedChecks"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20130923174359) do
     t.string   "title"
     t.text     "description"
     t.decimal  "price"
-    t.string   "imageUrl"
+    t.text     "imageUrl"
     t.string   "priceNotice"
     t.string   "priceType"
     t.string   "shortAddress"
-    t.string   "mapurl"
+    t.text     "mapurl"
     t.string   "ownership"
-    t.string   "shortInfoHtml"
+    t.text     "shortInfoHtml"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20130923174359) do
 
   create_table "requests", force: true do |t|
     t.string   "title"
-    t.string   "url"
+    t.text     "url"
     t.boolean  "processed",          default: false
     t.integer  "numFailedAttempts",  default: 0
     t.datetime "firstFailedAttempt"
@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 20130923174359) do
   end
 
   create_table "search_infos", force: true do |t|
-    t.string   "urlNormalized"
+    t.text     "urlNormalized"
     t.string   "usage",            default: "user"
-    t.string   "externId"
+    t.text     "externId"
     t.string   "externSource"
     t.datetime "lastCheckAt"
     t.integer  "numFailedChecks"

@@ -84,9 +84,9 @@ def update_search_info(si, sreality)
   #end
 
   #only for debug
-  si.ad_infos.delete si.ad_infos.first
-  si.ad_infos.delete si.ad_infos.second
-  si.ad_infos.delete si.ad_infos.third
+  #si.ad_infos.delete si.ad_infos.first
+  #si.ad_infos.delete si.ad_infos.second
+  #si.ad_infos.delete si.ad_infos.third
 
   si.resultsCount = ads.length
   si.lastExternId = ads.first['externid']
@@ -157,7 +157,7 @@ puts_divider
 puts "Processing search infos"
 puts_divider
 puts "Getting SearchInfo with last check before #{dt}"
-sis = SearchInfo.where('lastCheckAt <= ? or lastCheckAt is null', dt)
+sis = SearchInfo.where('"lastCheckAt" <= ? or "lastCheckAt" is null', dt)
 sis.each do |si|
   begin
     puts "Search info url: #{si.urlNormalized}"

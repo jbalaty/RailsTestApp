@@ -47,3 +47,4 @@ end
 # web scrapping library
 gem 'mechanize'
 #gem 'log4r'
+gem 'pg' # Postgres Driver
