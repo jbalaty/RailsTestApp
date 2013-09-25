@@ -201,7 +201,7 @@ changes.each do |change|
   end
 end
 puts_divider
-puts "Sending notification emails #{requestNotifications.length}"
+puts "Sending notification emails: #{requestNotifications.length}"
 requestNotifications.each do |k, v|
   begin
     puts "Sending emaitl for request #{k.id}"
@@ -238,5 +238,5 @@ end
 puts_divider
 dt_end = Time.now
 timeDiff = dt_end - dt_start
-puts "Time of run: #{timeDiff}"
+puts "#{DateTime.now} Time of run: #{timeDiff}"
 puts_divider

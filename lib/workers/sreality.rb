@@ -48,7 +48,11 @@ class Sreality
     while page
       nodes = page.search('#changingResults .result.vcard')
       nodes.each do |vcard|
-        ads << extract_search_page_item(vcard)
+        unless vcard.to_s =~ /\t .tip/
+          ads << extract_search_page_item(vcard)
+        else
+          puts "Skipping this node, it is probably SReality payed ad"
+        end
       end
       # try to find next page link
       nodes = page.search('#paging a.next')
@@ -85,7 +89,7 @@ class Sreality
       nodes = vcard_node.search('.silver')
       result['priceType'] = nodes.first.content if nodes.any?
       nodes = vcard_node.search('.address.adr').children().slice(2..10)
-      result['shortAddress'] = nodes.to_a.map {|n| n.content}.join
+      result['shortAddress'] = nodes.to_a.map { |n| n.content }.join
       nodes = vcard_node.search('.picture.url img')
       result['imageUrl'] = nodes.first['data-src']
       result

@@ -21,7 +21,7 @@ Request.create!(title:'Muj inzerat na vyhledavani',
                 email: 'test@balwan.cz'
 )
 Request.create!(title:'Muj inzerat na domy v Ceske Lipe',
-                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=2&sub%5B%5D=37&sub%5B%5D=41&price_min=&price_max=&region=&distance=0&rg%5B%5D=5&dt%5B%5D=18&usable_area-min=&usable_area-max=&flats-min=&flats-max=&age=0&extension=0&sort=0&perPage=10&hideRegions=0&discount=-1',
+                url:'http://www.sreality.cz/search?category_type_cb=1&category_main_cb=1&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3&sub%5B%5D=4&sub%5B%5D=5&sub%5B%5D=6&price_min=1200000&price_max=1850000&region=&distance=0&rg%5B%5D=10&dt%5B%5D=5001&dt%5B%5D=5002&dt%5B%5D=5003&dt%5B%5D=5008&usable_area-min=30&usable_area-max=&floor_number-min=&floor_number-max=&age=0&extension=1&sort=0&perPage=10&hideRegions=0&discount=-1',
                 email: 'test@balwan.cz'
 )
 Request.create!(title:'Fail inzerat',
