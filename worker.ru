@@ -84,7 +84,7 @@ def update_search_info(si, sreality)
   #end
 
   #only for debug
-  si.ad_infos.delete si.ad_infos.first
+  #si.ad_infos.delete si.ad_infos.first
   #si.ad_infos.delete si.ad_infos.second
   #si.ad_infos.delete si.ad_infos.third
 

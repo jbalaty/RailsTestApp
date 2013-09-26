@@ -1,6 +1,8 @@
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
+puts 'Processing config file'
+
 # Initialize the Rails application.
 RailsTestApp::Application.initialize!
 RailsTestApp::Application.configure do
