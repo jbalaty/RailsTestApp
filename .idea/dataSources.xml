@@ -29,7 +29,7 @@
     <data-source source="LOCAL" name="Rails RailsTestApp: production" product="PostgreSQL" version="9.1.9" jdbc-version="3.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.2 JDBC3g (build 1002)" uuid="e2112fbf-1731-4be3-bd8d-4fe6a983cb95">
       <identifier-quote-string>&quot;</identifier-quote-string>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:rwatcher-prod</jdbc-url>
+      <jdbc-url>jdbc:postgresql:rwatcher-devel</jdbc-url>
       <user-name>rwatcher</user-name>
       <user-password>dfc1dfcbdfd8dfcbdfc4dfdedfcfdfc4dfcbdf9bdf98df99</user-password>
       <libraries>

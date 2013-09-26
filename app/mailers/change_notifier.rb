@@ -1,6 +1,6 @@
 # encoding:UTF-8
 class ChangeNotifier < ActionMailer::Base
-
+  default from: 'info@pcin.cz'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
