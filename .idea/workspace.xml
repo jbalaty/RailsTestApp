@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fe2e3d0-bdaa-485a-9351-7522c37a4101" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="$PROJECT_DIR$/config/environment.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/workers/sreality.rb" afterPath="$PROJECT_DIR$/lib/workers/sreality.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130922190910_create_changes.rb" afterPath="$PROJECT_DIR$/db/migrate/20130922190910_create_changes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worker.ru" afterPath="$PROJECT_DIR$/worker.ru" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RailsTestApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380220568454" ignored="false" />
+    <file path="/Dummy.txt" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380785173290" ignored="false" />
     <file path="/20130820110741_create_ads.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379799398771" ignored="false" />
     <file path="/seeds.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380065310737" ignored="false" />
     <file path="/application.html.erb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1376997794461" ignored="false" />
@@ -20,13 +19,13 @@
     <file path="/ads_controller_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377005078444" ignored="false" />
     <file path="/ads_controller.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377008710519" ignored="false" />
     <file path="/ad_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377010137812" ignored="false" />
-    <file path="/fragment.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380226880239" ignored="false" />
+    <file path="/fragment.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380786148242" ignored="false" />
     <file path="/schema.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377969805579" ignored="false" />
     <file path="/request.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379963804086" ignored="false" />
     <file path="/requests.yml" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377985893905" ignored="false" />
     <file path="/requests_controller_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377986140744" ignored="false" />
     <file path="/request_test.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1377987656497" ignored="false" />
-    <file path="/worker.ru" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380226732279" ignored="false" />
+    <file path="/worker.ru" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380786657137" ignored="false" />
     <file path="/sreality.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380152964266" ignored="false" />
     <file path="/20130831174904_create_requests.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380065277511" ignored="false" />
     <file path="/20130908212923_create_requests_ads.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379797536289" ignored="false" />
@@ -45,7 +44,7 @@
     <file path="/20130922162850_create_search_info_ads_relation.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379869014049" ignored="false" />
     <file path="/ad_info.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379868429344" ignored="false" />
     <file path="/search_info_ads_relation.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379868685879" ignored="false" />
-    <file path="/20130922190910_create_changes.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379883804586" ignored="false" />
+    <file path="/20130922190910_create_changes.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380320880499" ignored="false" />
     <file path="/change.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379883823836" ignored="false" />
     <file path="/environment.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380223812680" ignored="false" />
     <file path="/20130923174359_create_notifications.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379963935748" ignored="false" />
@@ -94,15 +93,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="application.rb" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/application.rb">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
               <provider selected="true" editor-type-id="text-editor">
@@ -112,10 +102,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="change.rb" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/models/change.rb">
+          <file leaf-file-name="ad_info.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/models/ad_info.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="21" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="20130922151229_create_ad_infos.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/db/migrate/20130922151229_create_ad_infos.rb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -124,16 +123,16 @@
           <file leaf-file-name="worker.ru" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/worker.ru">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="31" selection-start="571" selection-end="571" vertical-scroll-proportion="-0.25906736">
+                <state line="70" column="72" selection-start="2274" selection-end="2274" vertical-scroll-proportion="0.54404145">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <file leaf-file-name="delegation.rb" pinned="false" current="false" current-in-tab="false">
+            <entry file="file:///var/lib/gems/1.9.1/gems/activerecord-4.0.0/lib/active_record/relation/delegation.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="23" column="0" selection-start="1341" selection-end="1341" vertical-scroll-proportion="0.0">
+                <state line="12" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -155,7 +154,7 @@
           <file leaf-file-name="sreality.rb" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/workers/sreality.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="51" selection-start="1486" selection-end="1486" vertical-scroll-proportion="-1.2139304">
+                <state line="98" column="24" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.98507464">
                   <folding />
                 </state>
               </provider>
@@ -164,7 +163,7 @@
           <file leaf-file-name="SearchInfoChangeSummary.html.erb" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="17" selection-start="7" selection-end="17" vertical-scroll-proportion="-0.0">
+                <state line="0" column="17" selection-start="7" selection-end="17" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -202,7 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20130922190910_create_changes.rb" />
         <option value="$PROJECT_DIR$/app/models/change.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130923174359_create_notifications.rb" />
         <option value="$PROJECT_DIR$/app/models/request.rb" />
@@ -216,8 +214,9 @@
         <option value="$PROJECT_DIR$/app/mailers/change_notifier.rb" />
         <option value="$PROJECT_DIR$/config/environment.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/worker.ru" />
         <option value="$PROJECT_DIR$/lib/workers/sreality.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20130922190910_create_changes.rb" />
+        <option value="$PROJECT_DIR$/worker.ru" />
       </list>
     </option>
   </component>
@@ -260,6 +259,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -503,7 +503,6 @@
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -844,7 +843,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6722338" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20064034" sideWeight="0.6597077" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20437567" sideWeight="0.6597077" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34029227" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -935,87 +934,41 @@
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/worker.ru</url>
-          <line>79</line>
-          <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/lib/workers/sreality.rb</url>
           <line>53</line>
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/worker.ru</url>
-          <line>106</line>
-          <option name="timeStamp" value="180" />
+          <line>115</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/worker.ru</url>
+          <line>91</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/worker.ru</url>
+          <line>190</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/worker.ru</url>
+          <line>55</line>
+          <option name="timeStamp" value="190" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="181" />
+      <option name="time" value="194" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/request.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="37" selection-end="60" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130922151229_create_ad_infos.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="16" selection-start="597" selection-end="597" vertical-scroll-proportion="0.38071066">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///var/lib/gems/1.9.1/gems/activerecord-4.0.0/lib/active_record/relation/delegation.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130831174904_create_requests.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="341" selection-end="341" vertical-scroll-proportion="0.20761245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="1" selection-start="166" selection-end="166" vertical-scroll-proportion="0.10089686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="1341" selection-end="1341" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="20" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environment.rb">
@@ -1039,9 +992,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/change_notifier.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/change.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
+        <state line="2" column="21" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ad_info.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130922151229_create_ad_infos.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130922190910_create_changes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="37" selection-start="255" selection-end="255" vertical-scroll-proportion="0.20725389">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130922151004_create_search_infos.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///var/lib/gems/1.9.1/gems/activerecord-4.0.0/lib/active_record/relation/delegation.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="20" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/search_info.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="12" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/workers/sreality.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="24" selection-start="3171" selection-end="3171" vertical-scroll-proportion="0.98507464">
           <folding />
         </state>
       </provider>
@@ -1053,16 +1062,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/workers/sreality.rb">
+    <entry file="file://$PROJECT_DIR$/app/mailers/change_notifier.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="51" selection-start="1486" selection-end="1486" vertical-scroll-proportion="-1.2139304">
+        <state line="14" column="0" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worker.ru">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="31" selection-start="571" selection-end="571" vertical-scroll-proportion="-0.25906736">
+        <state line="70" column="72" selection-start="2274" selection-end="2274" vertical-scroll-proportion="0.54404145">
           <folding />
         </state>
       </provider>

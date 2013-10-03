@@ -37,6 +37,7 @@ def update_ad(ad)
   changed
 end
 
+
 def update_search_info(si, sreality)
   changed = false
   extractedsi = sreality.extract_search_page_info(si.urlNormalized)
@@ -46,6 +47,8 @@ def update_search_info(si, sreality)
   end
   #old_ad_infos_arr = si.ad_infos.clone.to_a
   # update all ads watched resources
+  hitLastExternId = false
+  lastExternIdsChangesCount = 0
   ads.each do |ad_hash|
     #tmp = ad_hash.select { |k| !['imageUrl'].include?(k)  }
     tmp = ad_hash
@@ -55,11 +58,34 @@ def update_search_info(si, sreality)
       puts "Creating new AdInfo"
       ai = AdInfo.create! tmp
     else
+      #if ai.price != tmp['price']
+      #  # Ad change
+      #  puts "Creating new change - new ad (siid=#{si.id} and aiid=#{ai.id}) - ad change"
+      #  change = Change.new(changeType: 'search_info', changeSubtype: 'change_ad',
+      #                      dataBefore: ai.price, dataAfter: tmp['price'])
+      #  change.search_info_id = si.id
+      #  change.ad_info_id = ai.id
+      #  change.save!
+      #end
+      # check if we hit the last externId and stop generating changes, limit this to 5 else if the last externId ad
+      # was already removed, we will generate checks for the whole array
+      if !hitLastExternId && lastExternIdsChangesCount <= 5
+        lastExternIdsChangesCount += 1
+        if ai.externId == si.lastExternId
+          hitLastExternId=true
+        else
+          puts "Creating new change - new ad (siid=#{si.id} and aiid=#{ai.id})"
+          change = Change.new(changeType: 'search_info', changeSubtype: 'updated_ad')
+          change.search_info_id = si.id
+          change.ad_info_id = ai.id
+          change.save!
+        end
+      end
       ai.update! tmp
     end
     # update links between search info resource and all ads in the search
     if !si.ad_infos.include? ai
-      puts "Creating new link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id}"
+      puts "Creating new link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id} - new ad"
       # create
       if (!si.new_record?)
         # track this change
@@ -87,9 +113,8 @@ def update_search_info(si, sreality)
   #si.ad_infos.delete si.ad_infos.first
   #si.ad_infos.delete si.ad_infos.second
   #si.ad_infos.delete si.ad_infos.third
-
+  si.lastExternId=ads.any? && ads[0]['externId']
   si.resultsCount = ads.length
-  si.lastExternId = ads.first['externid']
   si.lastCheckAt = DateTime.now
   changed
 end

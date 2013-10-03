@@ -6,6 +6,8 @@ class CreateChanges < ActiveRecord::Migration
       t.string :changeType
       t.string :changeSubtype
       t.string :data
+      t.text  :dataBefore
+      t.text  :dataAfter
 
       t.timestamps
     end
