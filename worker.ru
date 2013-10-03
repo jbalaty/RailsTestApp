@@ -229,7 +229,7 @@ puts_divider
 puts "Sending notification emails: #{requestNotifications.length}"
 requestNotifications.each do |k, v|
   begin
-    puts "Sending emaitl for request #{k.id}"
+    puts "Sending email for request #{k.id}"
     ChangeNotifier.SearchInfoChangeSummary(k, v).deliver
   rescue
     puts $!, $@

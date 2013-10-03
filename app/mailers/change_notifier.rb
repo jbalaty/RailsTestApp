@@ -7,7 +7,7 @@ class ChangeNotifier < ActionMailer::Base
   #   en.change_notifier.SearchInfoChangeSummary.subject
   #
   def SearchInfoChangeSummary(request, notifications)
-
+    @request = request
     @notifications = notifications.sort_by! do |n|
       [n.search_info.id, n.created_at]
     end
