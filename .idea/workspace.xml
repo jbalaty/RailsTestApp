@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2fe2e3d0-bdaa-485a-9351-7522c37a4101" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.html.erb" afterPath="$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environment.rb" afterPath="$PROJECT_DIR$/config/environment.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RailsTestApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380883264860" ignored="false" />
+    <file path="/Dummy.txt" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380883939708" ignored="false" />
     <file path="/20130820110741_create_ads.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1379799398771" ignored="false" />
     <file path="/seeds.rb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1380065310737" ignored="false" />
     <file path="/application.html.erb" changelist="2fe2e3d0-bdaa-485a-9351-7522c37a4101" time="1376997794461" ignored="false" />
@@ -107,7 +106,7 @@
           <file leaf-file-name="worker.ru" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/worker.ru">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="245" column="72" selection-start="7484" selection-end="7484" vertical-scroll-proportion="1.1233624">
+                <state line="231" column="69" selection-start="7171" selection-end="7171" vertical-scroll-proportion="3.77451">
                   <folding />
                 </state>
               </provider>
@@ -138,7 +137,7 @@
           <file leaf-file-name="SearchInfoChangeSummary.html.erb" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="46" selection-start="90" selection-end="90" vertical-scroll-proportion="0.03456221">
+                <state line="4" column="9" selection-start="187" selection-end="187" vertical-scroll-proportion="0.06896552">
                   <folding />
                 </state>
               </provider>
@@ -252,6 +251,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -494,21 +494,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="appearance" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/worker.ru" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -836,7 +835,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6722338" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20651014" sideWeight="0.6722338" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20864461" sideWeight="0.6722338" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34029227" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1038,14 +1037,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/worker.ru">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="72" selection-start="7484" selection-end="7484" vertical-scroll-proportion="1.1233624">
+        <state line="231" column="69" selection-start="7171" selection-end="7171" vertical-scroll-proportion="3.77451">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/change_notifier/SearchInfoChangeSummary.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="46" selection-start="90" selection-end="90" vertical-scroll-proportion="0.03456221">
+        <state line="4" column="9" selection-start="187" selection-end="187" vertical-scroll-proportion="0.06896552">
           <folding />
         </state>
       </provider>
