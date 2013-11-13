@@ -37,6 +37,14 @@ def update_ad(ad)
   changed
 end
 
+def ad_changed?(ai, new_values_hash)
+  #if ai.title != new_values_hash['title'] || ai.price != new_values_hash['price']
+  #  || ai.imageUrl != new_values_hash['imageUrl']
+  if ai.shortInfoHtml != new_values_hash['shortInfoHtml']
+    return true
+  end
+  else return false
+end
 
 def update_search_info(si, sreality)
   changed = false
@@ -45,10 +53,10 @@ def update_search_info(si, sreality)
   if si.resultsCount != ads.length or si.lastExternId != ads.first['externid']
     changed = true
   end
-  #old_ad_infos_arr = si.ad_infos.clone.to_a
+  # old_ad_infos_arr = si.ad_infos.clone.to_a
   # update all ads watched resources
-  hitLastExternId = false
-  lastExternIdsChangesCount = 0
+  hit_last_extern_id = false
+  last_extern_ids_changes_count = 0
   ads.each do |ad_hash|
     #tmp = ad_hash.select { |k| !['imageUrl'].include?(k)  }
     tmp = ad_hash
@@ -67,27 +75,30 @@ def update_search_info(si, sreality)
       #  change.ad_info_id = ai.id
       #  change.save!
       #end
-      # check if we hit the last externId and stop generating changes, limit this to 5 else if the last externId ad
+
+      # check if we hit the last externId and stop generating changes, limit this to 10 else if the last externId ad
       # was already removed, we will generate checks for the whole array
-      if !hitLastExternId && lastExternIdsChangesCount <= 5
-        lastExternIdsChangesCount += 1
+      if !hit_last_extern_id && last_extern_ids_changes_count <= 50
+        last_extern_ids_changes_count += 1 #changes counter
         if ai.externId == si.lastExternId
-          hitLastExternId=true
+          hit_last_extern_id = true
         else
-          puts "Creating new change - new ad (siid=#{si.id} and aiid=#{ai.id})"
-          change = Change.new(changeType: 'search_info', changeSubtype: 'updated_ad')
-          change.search_info_id = si.id
-          change.ad_info_id = ai.id
-          change.save!
+          if ad_changed? ai, ad_hash
+            puts "Creating new change - new ad (siid=#{si.id} and aiid=#{ai.id})"
+            change = Change.new(changeType: 'search_info', changeSubtype: 'updated_ad')
+            change.search_info_id = si.id
+            change.ad_info_id = ai.id
+            change.save!
+          end
         end
       end
       ai.update! tmp
     end
     # update links between search info resource and all ads in the search
-    if !si.ad_infos.include? ai
+    unless si.ad_infos.include? ai
       puts "Creating new link between SearchInfo and AdInfo - siid=#{si.id} and aiid=#{ai.id} - new ad"
       # create
-      if (!si.new_record?)
+      unless si.new_record?
         # track this change
         puts "Creating new change - new ad (siid=#{si.id} and aiid=#{ai.id})"
         change = Change.new(changeType: 'search_info', changeSubtype: 'new_ad')
