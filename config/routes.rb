@@ -1,4 +1,8 @@
 RailsTestApp::Application.routes.draw do
+  get "home/index"
+  post "home/index"
+  post "home/create"
+
   resources :changes
 
   resources :ad_infos
@@ -13,7 +17,7 @@ RailsTestApp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index', as: 'home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

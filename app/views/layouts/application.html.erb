@@ -2,12 +2,17 @@
 <html>
 <head>
   <title>RailsTestApp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body  class='<%= controller.controller_name %>'>
+<body class='<%= controller.controller_name %>'>
+<h1>Sledování realit</h1>
+<p>Máte problém s realitami?</p>
 
+<% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+<% end -%>
 <%= yield %>
 
 </body>

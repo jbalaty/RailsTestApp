@@ -1,0 +1,17 @@
+
+
+<%#= render 'form' %>
+
+<%= form_tag do %>
+
+
+
+    <div class="field">
+      <%= label_tag :url, "Zadejte url adresu, kterou chcete sledovat" %>
+      <br>
+      <%= text_field_tag :url, @url %>
+    </div>
+    <div class="actions">
+      <%= submit_tag("Odeslat") %>
+    </div>
+<% end %>
