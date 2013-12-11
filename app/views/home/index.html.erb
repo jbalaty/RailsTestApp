@@ -1,11 +1,6 @@
-
-
 <%#= render 'form' %>
 
 <%= form_tag do %>
-
-
-
     <div class="field">
       <%= label_tag :url, "Zadejte url adresu, kterou chcete sledovat" %>
       <br>
@@ -14,4 +9,10 @@
     <div class="actions">
       <%= submit_tag("Odeslat") %>
     </div>
+
+    <% if @summary %>
+        <fieldset><legend>Informace o adrese</legend>
+          <%= @summary %>
+        </fieldset>
+    <% end %>
 <% end %>

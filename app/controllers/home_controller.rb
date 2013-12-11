@@ -1,4 +1,8 @@
 # coding: utf-8
+require_relative '../../lib/workers/http_tool.rb'
+require_relative '../../lib/workers/sreality.rb'
+
+
 class HomeController < ApplicationController
   def index
     #@messages = []
@@ -6,11 +10,22 @@ class HomeController < ApplicationController
     flash.now[:alert] = nil
     @url = params[:url]
     if request.method == 'POST'
+      http_tool = HttpTool.new
+      sreality = Sreality.new http_tool
       if @url !~ URI::regexp
         flash.now[:alert] = "Nesprávná url adresa, zkontrolujte, zda-li začíná znaky \"http://\""
-      elsif /http:\\\/\\\/www.sreality.cz/i !~ @url
+      elsif sreality.is_url_valid?(@url) == nil
         flash.now[:alert] = "Nesprávná url - můžete zadat pouze adresu vedoucí na server Sreality.cz,
-        např. \"http://www.sreality.cz/search?category_type_cb=1&category_main_cb=1...\""
+          např. \"http://www.sreality.cz/search?category_type_cb=1&category_main_cb=1...\""
+      else
+        page_info = sreality.get_page_summary(@url)
+        unless page_info
+          flash.now[:alert] = "Bohužel náš systém nebyl schopen tuto adresu zpracovat.
+Chyba bude zřejmě na naší straně, prosíme Vás tedy o zaslaní této adresy na naši
+emailovou adresu <a href=\"mailto:zakaznicky.servis@pcin.cz\">zakaznicky.servis@pcin.cz. Pokusíme to co nejrychleji vyřešit. Děkujeme"
+        else
+          @summary = 'Počet nalezených inzerátů: '+page_info['total'].to_s + "(Cena "+(page_info['total']/50)+")"
+        end
       end
     end
   end
