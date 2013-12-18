@@ -132,7 +132,7 @@ class Sreality
     while page
       nodes = page.search('#changingResults .result.vcard')
       nodes.each do |vcard|
-        unless vcard['class'] =~ /\.tip/
+        unless vcard['class'] =~ /tip/
           ads << extract_search_page_item(vcard)
         else
           puts "Skipping this node, it is probably SReality payed ad"

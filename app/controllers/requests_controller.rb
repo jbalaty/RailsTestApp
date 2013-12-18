@@ -66,6 +66,4 @@ class RequestsController < ApplicationController
     def set_request
       @request = Request.find(params[:id])
     end
-
-    +
 end

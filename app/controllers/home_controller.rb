@@ -24,7 +24,7 @@ class HomeController < ApplicationController
 Chyba bude zřejmě na naší straně, prosíme Vás tedy o zaslaní této adresy na naši
 emailovou adresu <a href=\"mailto:zakaznicky.servis@pcin.cz\">zakaznicky.servis@pcin.cz. Pokusíme to co nejrychleji vyřešit. Děkujeme"
         else
-          @summary = 'Počet nalezených inzerátů: '+page_info['total'].to_s + "(Cena "+(page_info['total']/50)+")"
+          @summary = 'Počet nalezených inzerátů: '+page_info['total'].to_s + " (Cena "+(page_info['total']/50).to_s+")"
         end
       end
     end

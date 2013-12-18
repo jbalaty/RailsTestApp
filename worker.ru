@@ -43,7 +43,7 @@ def ad_changed?(ai, new_values_hash)
   if ai.shortInfoHtml != new_values_hash['shortInfoHtml']
     return true
   end
-  else return false
+  return false
 end
 
 def update_search_info(si, sreality)
