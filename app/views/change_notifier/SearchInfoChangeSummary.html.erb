@@ -1,5 +1,5 @@
-<h2>Nové inzeráty <a href="<%= @request.url %>"><%= @request.title %></a></h2>
-<a href="<%= @request.url %>">link</a>
+<h2>Nové inzeráty <a href="<%= @request.url %>"><%= @request.title %></a> (<a href="<%= @request.url %>">link</a>)</h2>
+
 <% @notifications.each do |notification| %>
 
     <div>
