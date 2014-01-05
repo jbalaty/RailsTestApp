@@ -7,6 +7,8 @@ class HomeController < ApplicationController
   def index
     #@messages = []
     #@messages.push request.method
+    @show_summary = false
+
     flash.now[:alert] = nil
     @url = params[:url]
     if request.method == 'POST'
@@ -21,10 +23,11 @@ class HomeController < ApplicationController
         page_info = sreality.get_page_summary(@url)
         unless page_info
           flash.now[:alert] = "Bohužel náš systém nebyl schopen tuto adresu zpracovat.
-Chyba bude zřejmě na naší straně, prosíme Vás tedy o zaslaní této adresy na naši
-emailovou adresu <a href=\"mailto:zakaznicky.servis@pcin.cz\">zakaznicky.servis@pcin.cz. Pokusíme to co nejrychleji vyřešit. Děkujeme"
+Chyba bude zřejmě na naší straně a nejsme schopni ji vyřešit ihned. Ale uložili jsme si ji a náš
+team se jí bude co nejdříve zabývat."
         else
-          @summary = 'Počet nalezených inzerátů: '+page_info['total'].to_s + " (Cena "+(page_info['total']/50).to_s+")"
+          @show_summary = true
+          @count = page_info['total']
         end
       end
     end

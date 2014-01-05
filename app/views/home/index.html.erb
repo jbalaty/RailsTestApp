@@ -1,18 +1,32 @@
 <%#= render 'form' %>
 
 <%= form_tag do %>
-    <div class="field">
-      <%= label_tag :url, "Zadejte url adresu, kterou chcete sledovat" %>
-      <br>
-      <%= text_field_tag :url, @url %>
+    <%= label_tag :url, "Zadejte url adresu, kterou chcete sledovat" %>
+    <div class="row collapse">
+      <div class="small-9 columns">
+        <%= text_field_tag :url, @url, placeholder: 'http://www.sreality.cz/hledani/prodej/......' %>
+      </div>
+      <div class="small-3 columns">
+        <%= submit_tag("Odeslat", class: 'button alert postfix') %>
+      </div>
     </div>
-    <div class="actions">
-      <%= submit_tag("Odeslat") %>
-    </div>
+<% end %>
 
-    <% if @summary %>
-        <fieldset><legend>Informace o adrese</legend>
-          <%= @summary %>
-        </fieldset>
+<%= form_tag do %>
+    <% if @show_summary %>
+        <div data-alert class="alert-box alert round">
+          Na této adrese jsme nalezli <%= @count %> inzerátů. Pokud je chcete sledovat, zadejte Vaši e-mailovou
+          adresu a odešlete.
+        </div>
+        <div class="row collapse">
+          <div class="small-9 columns">
+            <%= hidden_field_tag :url, @url %>
+            <%= text_field_tag :email, @email, placeholder: 'vaše e-mailová adresa, např. pepa.vomacka@seznam.cz' %>
+          </div>
+          <div class="small-3 columns">
+            <%= submit_tag("Začít sledovat", class: 'button postfix') %>
+          </div>
+        </div>
+
     <% end %>
 <% end %>
